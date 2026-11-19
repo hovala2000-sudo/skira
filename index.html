@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>עוזר לכתיבת סקירה</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Gveret+Levin&family=Heebo:wght@400;500;700;800&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gveret+Levin&family=Secular+One&family=Heebo:wght@400;500;700;800&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#f6f4ee; --paper:#fffdf8; --ink:#1d2327; --muted:#6b6f73; --line:#e3ded2;
@@ -358,23 +358,134 @@ table.cmp th.corner span{display:block}
   .final{padding:1.5rem}
   .tabs{top:0;position:static}
 }
+
+/* ===== theme: colorful notebook ===== */
+:root{--bg:#fbf6ea;--paper:#fffef8;--ink:#2c2c2a;--muted:#6f685b;--line:#e8dcc4;--accent:#1f5fa8;--accent-2:#e4eefa;--amber:#ef9f27;--amber-l:#faeeda;--amber-d:#633806;--mint:#c9efdc;--radius:10px}
+html,body{color:var(--ink)}
+body{background-color:var(--bg);background-image:linear-gradient(rgba(133,183,235,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(133,183,235,.16) 1px,transparent 1px);background-size:26px 26px}
+.ico{width:1.1em;height:1.1em;vertical-align:-.18em;flex:none}
+h2{font-family:"Secular One",Heebo,sans-serif;font-weight:400;font-size:1.9rem;display:flex;align-items:center;gap:.6rem;margin-top:.1rem}
+h2 .h-txt{background:linear-gradient(transparent 55%,#fac775 55%,#fac775 88%,transparent 88%);padding:0 .25rem}
+h2 .h-ico{display:inline-grid;place-items:center;width:2.6rem;height:2.6rem;border-radius:50%;background:var(--amber);color:#412402;transform:rotate(-8deg);box-shadow:2px 3px 0 rgba(65,36,2,.25);font-size:1.25rem}
+.kicker{font-family:"Gveret Levin",cursive;color:#c2410c;font-size:1.15rem;margin-bottom:.1rem}
+.step-head p{font-size:1.02rem}
+h3{font-family:"Secular One",Heebo,sans-serif;font-weight:400;font-size:1.2rem}
+/* top bar */
+.top{background:var(--amber-l);border-bottom:2px dashed var(--amber);backdrop-filter:none}
+.brand{font-family:"Secular One",Heebo,sans-serif;font-weight:400;color:var(--amber-d);display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;font-size:1.45rem}
+.brand small{flex-basis:100%;font-family:Heebo,sans-serif;color:#854f0b}
+.brand-ico{display:inline-grid;place-items:center;width:2rem;height:2rem;background:#fff;border:2px solid var(--amber);border-radius:50%;color:var(--amber-d);transform:rotate(-10deg)}
+.stp{color:#854f0b;border-radius:999px;padding:.25rem .7rem .25rem .5rem;position:relative}
+.stp b{width:2.1rem;height:2.1rem;background:#fff;border:2px solid var(--amber);color:#854f0b;font-size:1rem;transition:transform .2s}
+.stp:hover{background:rgba(255,255,255,.6)}
+.stp:hover b{transform:rotate(-8deg) scale(1.06)}
+.stp.on{background:#fff;color:#412402;font-weight:700;box-shadow:2px 3px 0 rgba(65,36,2,.18)}
+.stp.on b{background:var(--amber);border-color:var(--amber);color:#412402;transform:rotate(-8deg)}
+.stp.done b{background:#c0dd97;border-color:#639922;color:#27500a}
+.stp b.pop{animation:pop .55s cubic-bezier(.3,1.6,.5,1)}
+@keyframes pop{0%{transform:scale(.3) rotate(-40deg)}100%{transform:scale(1) rotate(0)}}
+.top .btn.hb{background:#fff;border-color:#f0c98a;color:#633806}
+.top .btn.ghost.hb{background:transparent;border-color:transparent}
+/* buttons */
+.btn{border-radius:10px;border-color:#e2d4b8;transition:transform .12s,box-shadow .12s}
+.btn:hover{transform:translateY(-1px);box-shadow:2px 3px 0 rgba(0,0,0,.08)}
+.btn.primary{background:var(--accent);border-color:#174a85;color:#fff;box-shadow:2px 3px 0 #0c447c}
+.btn.primary:hover{box-shadow:3px 4px 0 #0c447c;filter:none}
+.btn.primary:active{transform:translateY(1px);box-shadow:1px 1px 0 #0c447c}
+#dlPdf{background:#fff;color:var(--accent);border-color:var(--accent);box-shadow:2px 3px 0 #b5d4f4}
+/* paper cards with tape */
+.card,.sec,.pull-panel,.notes,.final,.table-wrap,.reader{background:var(--paper);border-color:#e6d8bc;box-shadow:1px 2px 0 rgba(80,60,20,.06),0 8px 22px rgba(80,60,20,.07)}
+.card,.final,.pull-panel{position:relative}
+.card::before,.final::before,.pull-panel::before{content:"";position:absolute;top:-11px;right:calc(50% - 45px);width:90px;height:22px;background:rgba(250,199,117,.75);transform:rotate(-3deg);border-left:1px dashed rgba(133,79,11,.25);border-right:1px dashed rgba(133,79,11,.25);pointer-events:none}
+.pull-panel::before{right:24px;background:rgba(159,225,203,.8)}
+.pull-panel{overflow:visible}
+.final::before{background:rgba(181,212,244,.85)}
+.reader{background-image:linear-gradient(to left,transparent 1.2rem,#f2b8b5 1.2rem,#f2b8b5 calc(1.2rem + 2px),transparent calc(1.2rem + 2px));padding-right:2.4rem}
+.reader.src{padding-right:2rem}
+/* text tabs = notebook dividers */
+.tabs{background:transparent;border-bottom:2px solid #e2d4b8;gap:.25rem}
+.tab{border-radius:12px 12px 0 0;border-bottom:0;padding:.4rem .6rem .35rem .8rem;transform:translateY(2px);font-weight:500}
+.tab:nth-child(4n+1){background:#fde7a6;border-color:#f0c96a}
+.tab:nth-child(4n+2){background:#cdeedd;border-color:#8fd3b4}
+.tab:nth-child(4n+3){background:#d6e7fb;border-color:#9cc3ef}
+.tab:nth-child(4n+4){background:#fbd9e6;border-color:#eda7c2}
+.tab .tnum{background:rgba(255,255,255,.7);color:var(--ink)}
+.tab.on{color:var(--ink);transform:translateY(2px) scale(1.04);box-shadow:0 -3px 0 rgba(0,0,0,.08) inset;padding-top:.55rem}
+.tab.on .tnum{background:var(--ink);color:#fff}
+.tabs.small .tab{transform:none;border-radius:10px;border-bottom:1px solid}
+/* toolbar */
+.tools{background:var(--paper);border-color:#e6d8bc;border-radius:12px}
+.sw{border-radius:50%;width:28px;height:28px;border:2px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.15)}
+.tool{border-radius:999px;display:inline-flex;align-items:center;gap:.3rem}
+/* dropzone + empty states */
+.dropzone{border:2.5px dashed var(--amber);background:rgba(255,254,248,.85);border-radius:16px;color:#854f0b}
+.dropzone strong{font-family:"Secular One",Heebo,sans-serif;font-weight:400;font-size:1.3rem}
+.dropzone .ill{display:block;margin:0 auto .6rem;width:170px;height:auto}
+.dropzone.over{background:#fff7e3}
+.empty-card .ill{display:block;width:150px;height:auto;margin:0 auto .6rem}
+.empty-card{text-align:center}
+.tipnote{background:#fde7a6;color:#633806;padding:.7rem 1rem;border-radius:3px;transform:rotate(-.6deg);max-width:640px;box-shadow:2px 3px 0 rgba(65,36,2,.12)}
+.tipnote .ico{color:#c2410c}
+/* step-2 picker */
+.pick{border-radius:12px;border-width:1.5px}
+.pick .box{border-radius:50%}
+.pick.on{background:#e4eefa;border-color:var(--accent)}
+.pick.on .box{background:var(--accent);border-color:var(--accent)}
+.slot .n{background:var(--amber);color:#412402;transform:rotate(-6deg)}
+/* table */
+table.cmp thead th{background:#fde7a6;color:#412402;border-color:#f0c96a}
+table.cmp th.corner{background:#fac775;color:#633806}
+table.cmp tbody th{background:#e4eefa;color:#0c447c}
+.auth input{border:1.5px solid #f0c96a;background:#fff}
+.auth input.miss{box-shadow:0 0 0 2px #f09595}
+.mini thead th{background:#fde7a6;color:#412402}
+.mini tbody th{background:#e4eefa;color:#0c447c}
+/* skeleton */
+.sec-title{color:#0c447c;font-family:"Secular One",Heebo,sans-serif;font-weight:400}
+.block-label{color:#c2410c;font-family:"Gveret Levin",cursive;font-size:1.15rem;font-weight:400}
+.handle .ico{width:1.2em;height:1.2em}
+.icon-btn{display:inline-grid;place-items:center}
+.rules span{background:#fff;border:1.5px dashed #f0997b;color:#712b13;border-radius:6px}
+.chip{border:2px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.12),2px 3px 0 rgba(0,0,0,.08);font-weight:500}
+/* modals as sticky paper */
+.modal{border-radius:8px;background:var(--paper);position:relative;border-top:10px solid var(--amber)}
+.modal h3{font-size:1.35rem}
+.choice{border-radius:12px;border-width:1.5px}
+.choice b{display:flex;align-items:center;gap:.35rem}
+.conn{background:#fff;border-width:1.5px}
+.cite-row{border-radius:10px}
+/* final */
+.final{border-radius:4px}
+.stamp{position:absolute;top:1.2rem;left:1.4rem;font-family:"Gveret Levin",cursive;font-size:1.6rem;color:#3b6d11;border:3px solid #639922;border-radius:12px;padding:.1rem .9rem;transform:rotate(-12deg);background:rgba(234,243,222,.85);animation:stampin .5s cubic-bezier(.3,1.6,.5,1)}
+@keyframes stampin{0%{transform:scale(2.2) rotate(-12deg);opacity:0}100%{transform:scale(1) rotate(-12deg);opacity:1}}
+.checklist .ok{color:#3b6d11}.checklist .no{color:#c2b9a5}
+.checklist li .ico{width:1.15em;height:1.15em}
+#toast{background:#2c2c2a;border-radius:12px;box-shadow:3px 4px 0 rgba(0,0,0,.2)}
+@media (max-width:900px){h2{font-size:1.5rem}h2 .h-ico{width:2.2rem;height:2.2rem}.brand small{display:none}}
+
+.steps{gap:.15rem;flex-wrap:nowrap}
+.stp{font-size:.93rem;padding:.2rem .55rem .2rem .4rem;gap:.35rem;white-space:nowrap}
+.stp b{width:1.9rem;height:1.9rem}
+@media (max-width:1500px){.brand small{display:none}}
+@media (max-width:1320px){.stp:not(.on) .sn{display:none}.stp{padding:.2rem}}
 </style>
 </head>
 <body>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true"><symbol id="i-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /> <path d="M7 12a5 5 0 1 0 10 0a5 5 0 1 0 -10 0" /> <path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /></symbol><symbol id="i-files" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3v4a1 1 0 0 0 1 1h4" /> <path d="M18 17h-7a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h4l5 5v7a2 2 0 0 1 -2 2" /> <path d="M16 17v2a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h2" /></symbol><symbol id="i-table" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-14" /> <path d="M3 10h18" /> <path d="M10 3v18" /></symbol><symbol id="i-notebook" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-11a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1m3 0v18" /> <path d="M13 8l2 0" /> <path d="M13 12l2 0" /></symbol><symbol id="i-books" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1l0 -14" /> <path d="M9 5a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1l0 -14" /> <path d="M5 8h4" /> <path d="M9 16h4" /> <path d="M13.803 4.56l2.184 -.53c.562 -.135 1.133 .19 1.282 .732l3.695 13.418a1.02 1.02 0 0 1 -.634 1.219l-.133 .041l-2.184 .53c-.562 .135 -1.133 -.19 -1.282 -.732l-3.695 -13.418a1.02 1.02 0 0 1 .634 -1.219l.133 -.041" /> <path d="M14 9l4 -1" /> <path d="M16 16l3.923 -.98" /></symbol><symbol id="i-file-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4" /> <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2" /> <path d="M9 15l2 2l4 -4" /></symbol><symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /> <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" /></symbol><symbol id="i-device-floppy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h10l4 4v10a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2" /> <path d="M10 14a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> <path d="M14 4l0 4l-6 0l0 -4" /></symbol><symbol id="i-folder-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19l2.757 -7.351a1 1 0 0 1 .936 -.649h12.307a1 1 0 0 1 .986 1.164l-.996 5.211a2 2 0 0 1 -1.964 1.625h-14.026a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2h4l3 3h7a2 2 0 0 1 2 2v2" /></symbol><symbol id="i-rotate" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19.95 11a8 8 0 1 0 -.5 4m.5 5v-5h-5" /></symbol><symbol id="i-upload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" /> <path d="M7 9l5 -5l5 5" /> <path d="M12 4l0 12" /></symbol><symbol id="i-clipboard-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" /> <path d="M9 5a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2" /> <path d="M9 12h6" /> <path d="M9 16h6" /></symbol><symbol id="i-pencil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" /> <path d="M13.5 6.5l4 4" /></symbol><symbol id="i-message-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1" /></symbol><symbol id="i-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l14 0" /> <path d="M5 12l6 6" /> <path d="M5 12l6 -6" /></symbol><symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l14 0" /> <path d="M13 18l6 -6" /> <path d="M13 6l6 6" /></symbol><symbol id="i-eraser" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 20h-10.5l-4.21 -4.3a1 1 0 0 1 0 -1.41l10 -10a1 1 0 0 1 1.41 0l5 5a1 1 0 0 1 0 1.41l-9.2 9.3" /> <path d="M18 13.3l-6.3 -6.3" /></symbol><symbol id="i-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7l16 0" /> <path d="M10 11l0 6" /> <path d="M14 11l0 6" /> <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" /> <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></symbol><symbol id="i-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5l0 14" /> <path d="M18 11l-6 -6" /> <path d="M6 11l6 -6" /></symbol><symbol id="i-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5l0 14" /> <path d="M18 13l-6 6" /> <path d="M6 13l6 6" /></symbol><symbol id="i-grip-vertical" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /> <path d="M8 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /> <path d="M8 19a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /> <path d="M14 5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /> <path d="M14 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /> <path d="M14 19a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /></symbol><symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5l0 14" /> <path d="M5 12l14 0" /></symbol><symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" /> <path d="M7 11l5 5l5 -5" /> <path d="M12 4l0 12" /></symbol><symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 9.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667l0 -8.666" /> <path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></symbol><symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5l10 -10" /></symbol><symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4.5l-4 4l-4 1.5l-1.5 1.5l7 7l1.5 -1.5l1.5 -4l4 -4" /> <path d="M9 15l-4.5 4.5" /> <path d="M14.5 4l5.5 5.5" /></symbol><symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12" /> <path d="M6 6l12 12" /></symbol><symbol id="i-writing" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 17v-12c0 -1.121 -.879 -2 -2 -2s-2 .879 -2 2v12l2 2l2 -2" /> <path d="M16 7h4" /> <path d="M18 19h-13a2 2 0 1 1 0 -4h4a2 2 0 1 0 0 -4h-3" /></symbol><symbol id="i-highlight" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" /> <path d="M12.5 5.5l4 4" /> <path d="M4.5 13.5l4 4" /> <path d="M21 15v4h-8l4 -4l4 0" /></symbol><symbol id="i-bulb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h1m8 -9v1m8 8h1m-15.4 -6.4l.7 .7m12.1 -.7l-.7 .7" /> <path d="M9 16a5 5 0 1 1 6 0a3.5 3.5 0 0 0 -1 3a2 2 0 0 1 -4 0a3.5 3.5 0 0 0 -1 -3" /> <path d="M9.7 17l4.6 0" /></symbol><symbol id="i-alert-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4" /> <path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0" /> <path d="M12 16h.01" /></symbol><symbol id="i-list-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 5.5l1.5 1.5l2.5 -2.5" /> <path d="M3.5 11.5l1.5 1.5l2.5 -2.5" /> <path d="M3.5 17.5l1.5 1.5l2.5 -2.5" /> <path d="M11 6l9 0" /> <path d="M11 12l9 0" /> <path d="M11 18l9 0" /></symbol><symbol id="i-file-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4" /> <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2" /> <path d="M9 9l1 0" /> <path d="M9 13l6 0" /> <path d="M9 17l6 0" /></symbol><symbol id="i-quote" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5" /> <path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5" /></symbol></svg>
 <header class="top">
-  <div class="brand">סוֹקְרִים<small>עוזר לכתיבת סקירה ברמת בגרות</small></div>
+  <div class="brand"><span class="brand-ico"><svg class="ico" aria-hidden="true"><use href="#i-pencil"/></svg></span>סוֹקְרִים<small>עוזר לכתיבת סקירה ברמת בגרות</small></div>
   <nav class="steps" id="steps"></nav>
-  <button class="btn sm hb" id="previewBtn" title="תצוגה מקדימה של הסקירה">👁<span class="hl-txt"> תצוגה מקדימה</span></button>
-  <button class="btn sm hb" id="saveBtn" title="שמירת קובץ עבודה, כדי להמשיך לעבוד במחשב אחר (זה לא קובץ Word. את הסקירה מורידים כ-Word בשלב 6)">💾<span class="hl-txt"> שמירת עבודה</span></button>
-  <label class="btn sm hb" title="פתיחת קובץ עבודה ששמרתם">📂<span class="hl-txt"> פתיחת עבודה</span><input type="file" id="loadInput" accept=".json,application/json,text/plain" hidden></label>
-  <button class="btn ghost sm hb" id="resetBtn" title="מחיקת הכול והתחלה מחדש">↺<span class="hl-txt"> התחלה מחדש</span></button>
+  <button class="btn sm hb" id="previewBtn" title="תצוגה מקדימה של הסקירה"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span class="hl-txt"> תצוגה מקדימה</span></button>
+  <button class="btn sm hb" id="saveBtn" title="שמירת קובץ עבודה, כדי להמשיך לעבוד במחשב אחר (זה לא קובץ Word. את הסקירה מורידים כ-Word בשלב 6)"><svg class="ico" aria-hidden="true"><use href="#i-device-floppy"/></svg><span class="hl-txt"> שמירת עבודה</span></button>
+  <label class="btn sm hb" title="פתיחת קובץ עבודה ששמרתם"><svg class="ico" aria-hidden="true"><use href="#i-folder-open"/></svg><span class="hl-txt"> פתיחת עבודה</span><input type="file" id="loadInput" accept=".json,application/json,text/plain" hidden></label>
+  <button class="btn ghost sm hb" id="resetBtn" title="מחיקת הכול והתחלה מחדש"><svg class="ico" aria-hidden="true"><use href="#i-rotate"/></svg><span class="hl-txt"> התחלה מחדש</span></button>
 </header>
 
 <main>
 <!-- STEP 1: task -->
 <section class="step" data-step="1">
   <div class="step-head">
-    <h2>1. המשימה</h2>
+    <div class="kicker">שלב 1 מתוך 6</div><h2><span class="h-ico"><svg class="ico" aria-hidden="true"><use href="#i-target"/></svg></span><span class="h-txt">המשימה</span></h2>
     <p>מתחילים מהמשימה: מעתיקים את נוסח המשימה ומגדירים מה סוקרים (התבחינים). כך, כשקוראים את הטקסטים בשלב הבא, כבר יודעים מה לחפש.</p>
   </div>
   <label class="field-label" for="taskInput">נוסח המשימה</label>
@@ -384,22 +495,22 @@ table.cmp th.corner span{display:block}
     <p class="hint">עד שלושה תבחינים (היבטים). כל תבחין יהיה שורה בטבלה וכותרת משנה בסקירה.</p>
     <div id="critSlots"></div>
   </div>
-  <p class="muted" style="margin-top:1rem">💡 העבודה נשמרת אוטומטית, אבל רק בדפדפן הזה. כדי להמשיך במחשב אחר, או כדי לא לאבד אותה במחשב של בית הספר, לוחצים <b>💾 שמירה</b> למעלה, ובמחשב השני <b>📂 פתיחה</b>.</p>
-  <div class="nav-btns"><span class="spacer"></span><button class="btn primary" data-go="2">הבא: הטקסטים ←</button></div>
+  <p class="muted tipnote"><svg class="ico" aria-hidden="true"><use href="#i-bulb"/></svg> העבודה נשמרת אוטומטית, אבל רק בדפדפן הזה. כדי להמשיך במחשב אחר, או כדי לא לאבד אותה במחשב של בית הספר, לוחצים <b><svg class="ico" aria-hidden="true"><use href="#i-device-floppy"/></svg> שמירת עבודה</b> למעלה, ובמחשב השני <b><svg class="ico" aria-hidden="true"><use href="#i-folder-open"/></svg> פתיחת עבודה</b>.</p>
+  <div class="nav-btns"><span class="spacer"></span><button class="btn primary" data-go="2">הבא: הטקסטים <svg class="ico" aria-hidden="true"><use href="#i-arrow-left"/></svg></button></div>
 </section>
 
 <!-- STEP 2: texts -->
 <section class="step" data-step="2" hidden>
   <div class="step-head">
-    <h2>2. הטקסטים</h2>
+    <div class="kicker">שלב 2 מתוך 6</div><h2><span class="h-ico"><svg class="ico" aria-hidden="true"><use href="#i-files"/></svg></span><span class="h-txt">הטקסטים</span></h2>
     <p>מעלים את הטקסטים (Word, PDF או קובץ טקסט) או מדביקים אותם, ובוחרים אילו מהם סוקרים. כל טקסט מקבל לשונית משלו. מסמנים קטע בטקסט, ואז צובעים, מוסיפים הערה או מעבירים ישר לטבלה. לחיצה כפולה על לשונית משנה את השם.</p>
   </div>
   <div class="upload-row">
-    <label class="btn primary">⬆ העלאת קבצים<input type="file" id="fileInput" multiple accept=".txt,.md,.docx,.pdf,.doc" hidden></label>
-    <button class="btn" id="pasteBtn">📋 הדבקת טקסט</button>
+    <label class="btn primary"><svg class="ico" aria-hidden="true"><use href="#i-upload"/></svg> העלאת קבצים<input type="file" id="fileInput" multiple accept=".txt,.md,.docx,.pdf,.doc" hidden></label>
+    <button class="btn" id="pasteBtn"><svg class="ico" aria-hidden="true"><use href="#i-clipboard-text"/></svg> הדבקת טקסט</button>
     <label class="chk"><input type="checkbox" id="splitChk" checked> כמה טקסטים ביחד? לפצל אוטומטית לפי כותרות כמו "טקסט 1" או "מקור א'"</label>
   </div>
-  <div class="dropzone" id="dropzone"><strong>גררו קבצים לכאן</strong>Word (.docx), PDF או טקסט</div>
+  <div class="dropzone" id="dropzone"></div>
 
   <div id="readerWrap" hidden>
     <div class="card pick-card">
@@ -414,16 +525,16 @@ table.cmp th.corner span{display:block}
       <aside class="notes" id="notesPanel"></aside>
     </div>
   </div>
-  <div class="nav-btns"><button class="btn" data-go="1">→ הקודם</button><button class="btn primary" data-go="3">הבא: בניית הטבלה ←</button></div>
+  <div class="nav-btns"><button class="btn" data-go="1"><svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg> הקודם</button><button class="btn primary" data-go="3">הבא: בניית הטבלה <svg class="ico" aria-hidden="true"><use href="#i-arrow-left"/></svg></button></div>
 </section>
 
 <!-- STEP 3 -->
 <section class="step" data-step="3" hidden>
   <div class="step-head">
-    <h2>3. טבלת השוואה</h2>
+    <div class="kicker">שלב 3 מתוך 6</div><h2><span class="h-ico"><svg class="ico" aria-hidden="true"><use href="#i-table"/></svg></span><span class="h-txt">טבלת השוואה</span></h2>
     <p>מתחת לשם של כל טקסט כותבים את <b>שם המשפחה של הכותב ואת השנה</b>. בלי זה אי אפשר להמשיך. מעתיקים לכל משבצת את מה שהטקסט אומר על התבחין: מדביקים, או מסמנים קטע בטקסט שליד הטבלה ולוחצים "העברה לטבלה". אחר כך צובעים <b>באותו צבע</b> רעיונות דומים.</p>
   </div>
-  <div id="tableEmpty" class="card" hidden>כדי לבנות טבלה צריך לפחות תבחין אחד (שלב 1) וטקסט אחד שנבחר לסקירה (שלב 2). <button class="btn sm" data-go="1">למשימה</button> <button class="btn sm" data-go="2">לטקסטים</button></div>
+  <div id="tableEmpty" class="card empty-card" hidden><span id="tblIll"></span>כדי לבנות טבלה צריך לפחות תבחין אחד (שלב 1) וטקסט אחד שנבחר לסקירה (שלב 2). <button class="btn sm" data-go="1">למשימה</button> <button class="btn sm" data-go="2">לטקסטים</button></div>
   <div id="tableArea">
     <div class="tools" id="tableTools"></div>
     <div class="split">
@@ -431,19 +542,19 @@ table.cmp th.corner span{display:block}
       <div class="src-panel card" id="srcPanel">
         <div class="src-head">
           <div class="tabs small" id="srcTabs"></div>
-          <span class="muted" style="font-size:.85rem">מסמנים קטע וגוררים אותו למשבצת, או:</span><button class="btn sm primary" id="srcSend">➜ העברה לטבלה</button>
+          <span class="muted" style="font-size:.85rem">מסמנים קטע וגוררים אותו למשבצת, או:</span><button class="btn sm primary" id="srcSend"><svg class="ico" aria-hidden="true"><use href="#i-arrow-left"/></svg> העברה לטבלה</button>
         </div>
         <article class="reader src" id="srcReader"></article>
       </div>
     </div>
   </div>
-  <div class="nav-btns"><button class="btn" data-go="2">→ הקודם</button><button class="btn primary" data-go="4">הבא: שלד הסקירה ←</button></div>
+  <div class="nav-btns"><button class="btn" data-go="2"><svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg> הקודם</button><button class="btn primary" data-go="4">הבא: שלד הסקירה <svg class="ico" aria-hidden="true"><use href="#i-arrow-left"/></svg></button></div>
 </section>
 
 <!-- STEP 4 -->
 <section class="step" data-step="4" hidden>
   <div class="step-head">
-    <h2>4. שלד הסקירה</h2>
+    <div class="kicker">שלב 4 מתוך 6</div><h2><span class="h-ico"><svg class="ico" aria-hidden="true"><use href="#i-notebook"/></svg></span><span class="h-txt">שלד הסקירה</span></h2>
     <p>גוררים קטעים מהטבלה אל הפסקאות. גוררים קטע צבוע, וכל הקטעים באותו צבע נמשכים יחד. אחרי כל גרירה בוחרים מילת קישור ואת הדובר, לאזכור אקדמי. כל קטע חדש נכנס <b>אחרי הקטע הקודם</b>. כדי להזיז קטע שלם למקום אחר, גוררים אותו מהידית <b>⠿</b> שבתחילתו. אפשר גם לערוך הכול ידנית.</p>
     <div class="rules"><b>אסור בסקירה:</b><span>סיכום</span><span>פירוט יתר ודוגמאות</span><span>אזכור "הטקסט" או שם הכותב בגוף המשפט</span><span>עמדות ודעות</span><span>אמצעים רטוריים</span></div>
   </div>
@@ -456,8 +567,8 @@ table.cmp th.corner span{display:block}
       <div id="sections"></div>
       <div class="sec-actions">
         <button class="btn sm" id="addSection">+ כותרת משנה</button>
-        <button class="btn sm" id="syncSections">↻ הוספת כותרות לפי התבחינים</button>
-        <button class="btn sm" id="handTgl" title="החלפה בין כתב יד במחברת לכתב רגיל">✍️ כתב יד</button>
+        <button class="btn sm" id="syncSections"><svg class="ico" aria-hidden="true"><use href="#i-list-check"/></svg> הוספת כותרות לפי התבחינים</button>
+        <button class="btn sm" id="handTgl" title="החלפה בין כתב יד במחברת לכתב רגיל"><svg class="ico" aria-hidden="true"><use href="#i-writing"/></svg> כתב יד</button>
       </div>
       <div class="wc" id="wordCount"></div>
     </div>
@@ -466,16 +577,16 @@ table.cmp th.corner span{display:block}
       <p class="muted">גררו קטע צבוע או את אחד הצבעים שלמטה, וכל הקטעים בצבע הזה יגיעו יחד. אפשר גם לסמן טקסט ולגרור אותו. בטלפון: לוחצים על קטע צבוע.</p>
       <div class="chips" id="colorChips"></div>
       <div id="miniTable"></div>
-      <div style="margin-top:.7rem"><button class="btn sm" id="insertSel">➕ הכנסת הטקסט המסומן לסקירה</button></div>
+      <div style="margin-top:.7rem"><button class="btn sm" id="insertSel"><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg> הכנסת הטקסט המסומן לסקירה</button></div>
     </aside>
   </div>
-  <div class="nav-btns"><button class="btn" data-go="3">→ הקודם</button><button class="btn primary" data-go="5">הבא: ביבליוגרפיה ←</button></div>
+  <div class="nav-btns"><button class="btn" data-go="3"><svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg> הקודם</button><button class="btn primary" data-go="5">הבא: ביבליוגרפיה <svg class="ico" aria-hidden="true"><use href="#i-arrow-left"/></svg></button></div>
 </section>
 
 <!-- STEP 5 -->
 <section class="step" data-step="5" hidden>
   <div class="step-head">
-    <h2>5. ביבליוגרפיה</h2>
+    <div class="kicker">שלב 5 מתוך 6</div><h2><span class="h-ico"><svg class="ico" aria-hidden="true"><use href="#i-books"/></svg></span><span class="h-txt">ביבליוגרפיה</span></h2>
     <p>מוסיפים פריט לכל טקסט לפי <b>מפ"ת ש"ם</b>: <b>מ</b>שפחה, <b>פ</b>רטי, <b>ת</b>אריך (שנה), <b>ש</b>ם המאמר, <b>מ</b>קום. הפרטים נמצאים בטקסטים שבצד. הרשימה מסתדרת לבד לפי סדר האלף־בית.</p>
   </div>
   <div class="bib-split">
@@ -498,20 +609,20 @@ table.cmp th.corner span{display:block}
     <article class="reader src" id="bibReader"></article>
   </div>
   </div>
-  <div class="nav-btns"><button class="btn" data-go="4">→ הקודם</button><button class="btn primary" data-go="6">הבא: הסקירה המוגמרת ←</button></div>
+  <div class="nav-btns"><button class="btn" data-go="4"><svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg> הקודם</button><button class="btn primary" data-go="6">הבא: הסקירה המוגמרת <svg class="ico" aria-hidden="true"><use href="#i-arrow-left"/></svg></button></div>
 </section>
 
 <!-- STEP 6 -->
 <section class="step" data-step="6" hidden>
   <div class="step-head">
-    <h2>6. הסקירה המוגמרת</h2>
+    <div class="kicker">שלב 6 מתוך 6</div><h2><span class="h-ico"><svg class="ico" aria-hidden="true"><use href="#i-file-check"/></svg></span><span class="h-txt">הסקירה המוגמרת</span></h2>
     <p>כך נראית הסקירה. מילים שמסומנות באדום הן דברים שאסור לכתוב בסקירה, ומעבר עליהן בעכבר מסביר למה. כדי לתקן חוזרים לשלב 4.</p>
   </div>
   <div class="final-grid">
     <article class="final" id="final"></article>
     <aside class="card" style="position:sticky;top:76px">
-      <div class="dl-row"><button class="btn primary" id="dlWord">⬇ Word</button><button class="btn primary" id="dlPdf">⬇ PDF</button></div>
-      <button class="btn" id="copyFinal" style="width:100%;justify-content:center;margin-top:.4rem">📋 העתקה</button>
+      <div class="dl-row"><button class="btn primary" id="dlWord"><svg class="ico" aria-hidden="true"><use href="#i-download"/></svg> Word</button><button class="btn primary" id="dlPdf"><svg class="ico" aria-hidden="true"><use href="#i-download"/></svg> PDF</button></div>
+      <button class="btn" id="copyFinal" style="width:100%;justify-content:center;margin-top:.4rem"><svg class="ico" aria-hidden="true"><use href="#i-copy"/></svg> העתקה</button>
       <p class="muted" style="font-size:.78rem;margin:.4rem 0 0">אם ההורדה לא עובדת כאן, פותחים את האתר מהקובץ בדפדפן רגיל. </p>
       <h3 style="margin-top:1.2rem">בדיקה לפני הגשה</h3>
       <ul class="checklist" id="checklist"></ul>
@@ -519,7 +630,7 @@ table.cmp th.corner span{display:block}
       <ul class="problems" id="problems"></ul>
     </aside>
   </div>
-  <div class="nav-btns"><button class="btn" data-go="5">→ הקודם</button></div>
+  <div class="nav-btns"><button class="btn" data-go="5"><svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg> הקודם</button></div>
 </section>
 </main>
 
@@ -549,6 +660,10 @@ const KEY='review-helper-v1';
 const MAMMOTH='https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js';
 const PDFJS='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
 const PDFW='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+const ILL='<svg class="ill" viewBox="0 0 170 120" aria-hidden="true"><g transform="rotate(-9 70 64)"><rect x="34" y="20" width="72" height="88" rx="4" fill="#FAEEDA" stroke="#2C2C2A" stroke-width="2"/></g><rect x="46" y="14" width="72" height="88" rx="4" fill="#fffef8" stroke="#2C2C2A" stroke-width="2"/><path d="M106 14v88" stroke="#F09595" stroke-width="2"/><path d="M56 34h42M56 46h42M56 58h30M56 70h38M56 82h24" stroke="#85B7EB" stroke-width="3" stroke-linecap="round"/><path d="M60 58h20" stroke="#FAC775" stroke-width="8" stroke-linecap="round" opacity=".8"/><g transform="rotate(32 138 62)"><rect x="131" y="22" width="15" height="62" rx="2" fill="#FAC775" stroke="#2C2C2A" stroke-width="2"/><rect x="131" y="16" width="15" height="9" rx="2" fill="#F09595" stroke="#2C2C2A" stroke-width="2"/><path d="M131 84l7.5 15 7.5-15z" fill="#F5C4B3" stroke="#2C2C2A" stroke-width="2" stroke-linejoin="round"/></g><path d="M20 30l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#EF9F27"/><path d="M150 102l2 4 4 2-4 2-2 4-2-4-4-2 4-2z" fill="#5DCAA5"/></svg>';
+const STEP_ICONS=['target','files','table','notebook','books','file-check'];
+const ICO=n=>`<svg class="ico" aria-hidden="true"><use href="#i-${n}"/></svg>`;
+let prevDone=null,justDone=new Set();
 const STEPS=['משימה','טקסטים','טבלה','שלד הסקירה','ביבליוגרפיה','סקירה מוגמרת'];
 
 /* ============ state ============ */
@@ -639,14 +754,15 @@ function eraseIn(root){
   marks.forEach(unwrap);root.normalize();return true;
 }
 function buildColorTools(box,{onColor,onErase,extra=''}){
-  box.innerHTML=`<span class="lbl">הדגשה:</span>${COLORS.map(c=>`<button class="sw hl-${c.k}" data-c="${c.k}" title="${c.name}"></button>`).join('')}<button class="tool" data-erase title="מוחק את ההדגשה מהקטע המסומן">⌫ מחיקת הדגשה</button>${extra}`;
+  box.innerHTML=`<span class="lbl">הדגשה:</span>${COLORS.map(c=>`<button class="sw hl-${c.k}" data-c="${c.k}" title="${c.name}"></button>`).join('')}<button class="tool" data-erase title="מוחק את ההדגשה מהקטע המסומן"><svg class="ico" aria-hidden="true"><use href="#i-eraser"/></svg> מחיקת הדגשה</button>${extra}`;
   box.addEventListener('mousedown',e=>{if(e.target.closest('button'))e.preventDefault()});
   box.addEventListener('click',e=>{const c=e.target.closest('[data-c]');if(c)onColor(c.dataset.c);if(e.target.closest('[data-erase]'))onErase()});
 }
 
 /* ============ steps ============ */
 function renderSteps(){const done=[crits().length>0,chosenTexts().length>0,chosenTexts().length>0&&!missingAuthors().length&&Object.values(S.table).some(has),has(S.opening)&&S.sections.length>0&&S.sections.every(x=>has(x.html)),S.bib.length>0,false];
-  $('#steps').innerHTML=STEPS.map((n,i)=>`<button class="stp ${S.step===i+1?'on':''} ${done[i]&&S.step!==i+1?'done':''}" data-go="${i+1}" title="${n}"><b>${done[i]&&S.step!==i+1?'✓':i+1}</b><span class="sn">${n}</span></button>`).join('')}
+  justDone=new Set(prevDone?done.map((d,i)=>d&&!prevDone[i]?i:-1).filter(i=>i>=0):[]);prevDone=done;
+  $('#steps').innerHTML=STEPS.map((n,i)=>`<button class="stp ${S.step===i+1?'on':''} ${done[i]&&S.step!==i+1?'done':''}" data-go="${i+1}" title="${n}"><b class="${justDone.has(i)?'pop':''}">${done[i]&&S.step!==i+1?ICO('check'):ICO(STEP_ICONS[i])}</b><span class="sn">${n}</span></button>`).join('')}
 function missingAuthors(){return chosenTexts().filter(t=>!norm(t.last)||!/^\d{4}[א-ת]?$/.test(norm(t.year)))}
 function go(n){
   if(n>=3&&!crits().length){toast('קודם כותבים לפחות תבחין אחד');n=1}
@@ -742,7 +858,7 @@ function saveReader(){const t=curText();if(t){t.html=$('#reader').innerHTML;save
 function renderReader(){
   const has=S.texts.length>0;
   $('#readerWrap').hidden=!has;dz.classList.toggle('small',has);
-  dz.innerHTML=has?'גררו לכאן קבצים נוספים':'<strong>גררו קבצים לכאן</strong>Word (.docx), PDF או טקסט';
+  dz.innerHTML=has?'גררו לכאן קבצים נוספים':ILL+'<strong>גררו לכאן את הטקסטים</strong>Word (.docx), PDF או טקסט. אפשר גם להדביק.';
   if(!has)return;
   renderPicker();
   if(!curText())S.active=S.texts[0].id;
@@ -762,7 +878,7 @@ $('#tabs').addEventListener('dblclick',async e=>{const tab=e.target.closest('.ta
 buildColorTools($('#readerTools'),{
   onColor:c=>{if(applyColor($('#reader'),c))saveReader()},
   onErase:()=>{if(eraseIn($('#reader')))saveReader()},
-  extra:`<span class="sep"></span><button class="tool" id="noteBtn">💬 הערה</button><button class="tool" id="toTableBtn">➜ העברה לטבלה</button><span class="sep"></span><button class="tool" id="editTgl" title="עריכת הטקסט עצמו, למשל כדי לתקן שגיאות מההמרה">✏️ עריכת הטקסט</button>`
+  extra:`<span class="sep"></span><button class="tool" id="noteBtn"><svg class="ico" aria-hidden="true"><use href="#i-message-circle"/></svg> הערה</button><button class="tool" id="toTableBtn"><svg class="ico" aria-hidden="true"><use href="#i-arrow-left"/></svg> העברה לטבלה</button><span class="sep"></span><button class="tool" id="editTgl" title="עריכת הטקסט עצמו, למשל כדי לתקן שגיאות מההמרה"><svg class="ico" aria-hidden="true"><use href="#i-pencil"/></svg> עריכת הטקסט</button>`
 });
 $('#reader').addEventListener('input',()=>{saveReader()});
 $('#reader').addEventListener('paste',plainPaste);
@@ -783,7 +899,7 @@ function renderNotes(){
   const r=$('#reader');const map=new Map();
   r.querySelectorAll('.note').forEach(s=>{s.removeAttribute('data-n');const id=s.dataset.nid;if(!map.has(id))map.set(id,{note:s.dataset.note,quote:'',first:s,last:s});const v=map.get(id);v.quote+=s.textContent;v.last=s});
   let n=0;map.forEach(v=>{v.n=++n;v.last.dataset.n=n});
-  $('#notesPanel').innerHTML=`<h4>הערות (${map.size})</h4>`+(map.size?[...map].map(([id,v])=>`<div class="nitem" data-nid="${id}"><b>${v.n}</b><q>${esc(v.quote.slice(0,70))}${v.quote.length>70?'…':''}</q><p>${esc(v.note)}</p><div class="acts"><button data-ednote="${id}">עריכה</button><button data-delnote="${id}">מחיקה</button></div></div>`).join(''):'<p class="muted">כדי להוסיף הערה מסמנים קטע בטקסט ולוחצים "💬 הערה".</p>');
+  $('#notesPanel').innerHTML=`<h4>הערות (${map.size})</h4>`+(map.size?[...map].map(([id,v])=>`<div class="nitem" data-nid="${id}"><b>${v.n}</b><q>${esc(v.quote.slice(0,70))}${v.quote.length>70?'…':''}</q><p>${esc(v.note)}</p><div class="acts"><button data-ednote="${id}">עריכה</button><button data-delnote="${id}">מחיקה</button></div></div>`).join(''):'<p class="muted">כדי להוסיף הערה מסמנים קטע בטקסט ולוחצים "הערה".</p>');
 }
 $('#notesPanel').addEventListener('click',async e=>{
   const r=$('#reader');
@@ -873,7 +989,7 @@ function ensureSections(force){
   S.sections.forEach(s=>{if(s.ci!=null&&!s.custom&&norm(S.criteria[s.ci]))s.title=norm(S.criteria[s.ci])});
   if(force){let n=0;C.forEach(c=>{if(!S.sections.some(s=>s.ci===c.i||norm(s.title)===c.name)){S.sections.push({id:uid(),title:c.name,html:'',ci:c.i});n++}});toast(n?`נוספו ${n} כותרות`:'כל התבחינים כבר מופיעים')}
 }
-function applyHand(){const on=S.hand!==false;document.querySelector('.review-layout').classList.toggle('notebook',on);$('#handTgl').textContent=on?'✍️ כתב יד: פועל':'✍️ כתב יד: כבוי'}
+function applyHand(){const on=S.hand!==false;document.querySelector('.review-layout').classList.toggle('notebook',on);$('#handTgl').innerHTML=on?'<svg class="ico" aria-hidden="true"><use href="#i-writing"/></svg> כתב יד: פועל':'<svg class="ico" aria-hidden="true"><use href="#i-writing"/></svg> כתב יד: כבוי'}
 function renderReview(){
   ensureSections();applyHand();
   $('#opening').innerHTML=S.opening||'';
@@ -881,8 +997,8 @@ function renderReview(){
 }
 function renderSections(){
   $('#sections').innerHTML=S.sections.map((s,i)=>`<div class="sec" data-id="${s.id}">
-    <div class="sec-head"><span class="handle" title="גררו כדי להזיז">⋮⋮</span><input class="sec-title" value="${esc(s.title)}" aria-label="כותרת משנה">
-    <button class="icon-btn" data-up title="הזזה למעלה" ${i===0?'disabled':''}>▲</button><button class="icon-btn" data-down title="הזזה למטה" ${i===S.sections.length-1?'disabled':''}>▼</button><button class="icon-btn" data-delsec title="מחיקה">🗑</button></div>
+    <div class="sec-head"><span class="handle" title="גררו כדי להזיז"><svg class="ico" aria-hidden="true"><use href="#i-grip-vertical"/></svg></span><input class="sec-title" value="${esc(s.title)}" aria-label="כותרת משנה">
+    <button class="icon-btn" data-up title="הזזה למעלה" ${i===0?'disabled':''}><svg class="ico" aria-hidden="true"><use href="#i-arrow-up"/></svg></button><button class="icon-btn" data-down title="הזזה למטה" ${i===S.sections.length-1?'disabled':''}><svg class="ico" aria-hidden="true"><use href="#i-arrow-down"/></svg></button><button class="icon-btn" data-delsec title="מחיקה"><svg class="ico" aria-hidden="true"><use href="#i-trash"/></svg></button></div>
     <div class="editable sec-body" contenteditable="true" data-ph="גררו לכאן קטעים מהטבלה או כתבו…">${s.html||''}</div></div>`).join('');
   document.querySelectorAll('.sec-body').forEach(el=>{const id=el.closest('.sec').dataset.id;makeDroppable(el,()=>{const s=S.sections.find(x=>x.id===id);if(s){s.html=el.innerHTML;save();updateWC()}})});
 }
@@ -1031,10 +1147,10 @@ document.addEventListener('click',async e=>{
   const sibs=[...box.querySelectorAll(':scope > .chunk')];const i=sibs.indexOf(ch);
   const txt=norm(ch.textContent.replace('⠿',''));
   const act=await modal({title:'מה לעשות עם הקטע?',html:`<div class="preview-q">${esc(txt.slice(0,160))}${txt.length>160?'…':''}</div><div class="choice-grid">
-    <button class="choice" data-a="up" ${i<=0?'disabled':''}><b>▲ למעלה</b><span>לפני הקטע הקודם</span></button>
-    <button class="choice" data-a="down" ${i<0||i>=sibs.length-1?'disabled':''}><b>▼ למטה</b><span>אחרי הקטע הבא</span></button>
-    <button class="choice" data-a="move"><b>↪ לפסקה אחרת</b><span>הקטע יעבור לסוף הפסקה</span></button>
-    <button class="choice" data-a="del"><b>🗑 מחיקה</b><span>הקטע יימחק מהסקירה</span></button></div>`,
+    <button class="choice" data-a="up" ${i<=0?'disabled':''}><b><svg class="ico" aria-hidden="true"><use href="#i-arrow-up"/></svg> למעלה</b><span>לפני הקטע הקודם</span></button>
+    <button class="choice" data-a="down" ${i<0||i>=sibs.length-1?'disabled':''}><b><svg class="ico" aria-hidden="true"><use href="#i-arrow-down"/></svg> למטה</b><span>אחרי הקטע הבא</span></button>
+    <button class="choice" data-a="move"><b><svg class="ico" aria-hidden="true"><use href="#i-arrow-left"/></svg> לפסקה אחרת</b><span>הקטע יעבור לסוף הפסקה</span></button>
+    <button class="choice" data-a="del"><b><svg class="ico" aria-hidden="true"><use href="#i-trash"/></svg> מחיקה</b><span>הקטע יימחק מהסקירה</span></button></div>`,
     buttons:[{label:'ביטול',value:undefined}],onOpen:(m,close)=>m.querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>close(b.dataset.a))});
   if(!act)return;
   const fire=x=>{x.innerHTML=x.innerHTML.replace(/(&nbsp;|\s){2,}/g,' ');x.normalize();x.dispatchEvent(new Event('input'))};
@@ -1105,7 +1221,7 @@ function bibFor(t){return S.bib.find(b=>norm(b.last)===norm(t.last)&&(!norm(t.ye
 function renderBib(){
   const T=chosenTexts().length?chosenTexts():S.texts;
   $('#prefill').innerHTML=T.length?`<span class="muted">מילוי מהיר:</span>`+T.map(t=>`<button class="btn sm" data-pf="${t.id}" ${bibFor(t)&&norm(t.last)?'disabled title="כבר יש פריט"':''}>${esc(norm(t.last)||t.name)}${norm(t.year)?', '+esc(norm(t.year)):''}</button>`).join(''):'';
-  $('#bibList').innerHTML=S.bib.length?bibSorted().map(b=>`<li><span class="t">${esc(fmtBib(b))}</span><span class="a"><button class="icon-btn" data-edb="${b.id}" title="עריכה">✏️</button><button class="icon-btn" data-delb="${b.id}" title="מחיקה">🗑</button></span></li>`).join(''):`<li class="muted" style="font-family:Heebo">עדיין אין פריטים. לכל טקסט שסקרתם צריך פריט אחד.</li>`;
+  $('#bibList').innerHTML=S.bib.length?bibSorted().map(b=>`<li><span class="t">${esc(fmtBib(b))}</span><span class="a"><button class="icon-btn" data-edb="${b.id}" title="עריכה"><svg class="ico" aria-hidden="true"><use href="#i-pencil"/></svg></button><button class="icon-btn" data-delb="${b.id}" title="מחיקה"><svg class="ico" aria-hidden="true"><use href="#i-trash"/></svg></button></span></li>`).join(''):`<li class="muted" style="font-family:Heebo">עדיין אין פריטים. לכל טקסט שסקרתם צריך פריט אחד.</li>`;
   $('#bibSubmit').textContent=bibEdit?'עדכון':'הוספה';
   const miss=chosenTexts().filter(t=>norm(t.last)&&!bibFor(t)).map(t=>norm(t.last));
   const partial=S.bib.filter(b=>!['last','first','year','title','place'].every(k=>norm(b[k]))).map(b=>b.last);
@@ -1224,15 +1340,17 @@ function problemsHtml(found,secTexts){
   return keys.length?keys.map(k=>`<li><b>✗ ${CAT[k]}</b> (${groups[k].length}): ${esc([...new Set(groups[k])].slice(0,6).join(', '))}</li>`).join('')+'<li class="muted">הבדיקה האוטומטית לא מושלמת. כדאי לקרוא את הסקירה גם בעצמכם.</li>'
     :'<li><span class="ok" style="color:var(--accent);font-weight:800">✓</span> לא נמצאו דברים אסורים</li><li class="muted">הבדיקה האוטומטית לא מושלמת. כדאי לקרוא את הסקירה גם בעצמכם.</li>';
 }
-function checklistHtml(checks){return checks.map(([ok,t])=>`<li><span class="${ok?'ok':'no'}">${ok?'✓':'○'}</span>${esc(t)}</li>`).join('')}
+function checklistHtml(checks){return checks.map(([ok,t])=>`<li><span class="${ok?'ok':'no'}">${ok?ICO('check'):ICO('x')}</span>${esc(t)}</li>`).join('')}
 
 /* ============ STEP 6: final ============ */
 function renderFinal(){
   const h=reviewHtml();
-  $('#final').innerHTML=h||'<p class="muted">הסקירה עדיין ריקה. <a href="#" data-go="4">לשלד הסקירה</a></p>';
+  $('#final').innerHTML=h||'<div class="empty-card" style="text-align:center">'+ILL+'<p class="muted">הסקירה עדיין ריקה. <a href="#" data-go="4">לשלד הסקירה</a></p></div>';
   const found=flagify($('#final'));const a=analyze();
   $('#checklist').innerHTML=checklistHtml(a.checks);
   $('#problems').innerHTML=problemsHtml(found,a.secTexts);
+  const ready=a.checks.every(c=>c[0])&&!found.length;
+  if(ready){const st=document.createElement('div');st.className='stamp';st.textContent='מוכן להגשה!';$('#final').prepend(st)}
 }
 $('#previewBtn').onclick=()=>{
   const d=document.createElement('article');d.className='final';d.innerHTML=reviewHtml()||'<p class="muted">הסקירה עדיין ריקה.</p>';
@@ -1275,7 +1393,7 @@ $('#dlWord').onclick=async()=>{
 $('#saveBtn').onclick=()=>{
   const d=new Date();const stamp=`${d.getDate()}-${d.getMonth()+1}`;
   const blob=new Blob([JSON.stringify({app:'skira',v:1,saved:d.toISOString(),state:S})],{type:'application/json'});
-  if(downloadBlob(blob,`קובץ-עבודה-סקירה-${stamp}.json`)){modal({title:'קובץ העבודה נשמר ✓',html:'<p>ירד קובץ עבודה (סיומת <b>.json</b>). <b>זה לא קובץ Word</b>, ולא פותחים אותו בעצמכם.</p><p>כדי להמשיך לעבוד במחשב אחר: פותחים את האתר ולוחצים <b>📂 פתיחת עבודה</b>.</p><p>את הסקירה המוכנה מורידים כ-Word או PDF בשלב 6.</p>',buttons:[{label:'הבנתי',cls:'primary',value:null},{label:'לשלב 6',value:'go6'}]}).then(v=>{if(v==='go6')go(6)})}
+  if(downloadBlob(blob,`קובץ-עבודה-סקירה-${stamp}.json`)){modal({title:'קובץ העבודה נשמר ✓',html:'<p>ירד קובץ עבודה (סיומת <b>.json</b>). <b>זה לא קובץ Word</b>, ולא פותחים אותו בעצמכם.</p><p>כדי להמשיך לעבוד במחשב אחר: פותחים את האתר ולוחצים <b>פתיחת עבודה</b>.</p><p>את הסקירה המוכנה מורידים כ-Word או PDF בשלב 6.</p>',buttons:[{label:'הבנתי',cls:'primary',value:null},{label:'לשלב 6',value:'go6'}]}).then(v=>{if(v==='go6')go(6)})}
 };
 $('#loadInput').addEventListener('change',async e=>{
   const f=e.target.files[0];e.target.value='';if(!f)return;
@@ -1311,6 +1429,7 @@ $('#copyFinal').onclick=async()=>{
 };
 
 /* ============ init ============ */
+$('#tblIll').innerHTML=ILL;
 go(S.step||1);
 </script>
 </body>
